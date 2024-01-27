@@ -4,13 +4,25 @@ from dash.dependencies import Input, Output
 import openai
 from openai import OpenAI
 import os
-import dash_auth
+from flask import Flask, Response
+from flask_basicauth import BasicAuth
 
-client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 
-app = dash.Dash(__name__)
+# Initialize the OpenAI client
+client = openai.OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 
-server = app.server 
+# Initialize Flask server
+server = Flask(__name__)
+# Configure BasicAuth
+server.config['BASIC_AUTH_USERNAME'] = os.environ.get('BASIC_AUTH_USERNAME') # Replace with your desired username
+server.config['BASIC_AUTH_PASSWORD'] = os.environ.get('BASIC_AUTH_PASSWORD')  # Replace with your desired password
+server.config['BASIC_AUTH_FORCE'] = True  # This will force BasicAuth on all routes
+
+basic_auth = BasicAuth(server)
+
+# Initialize Dash app by passing the Flask server
+app = dash.Dash(__name__, server=server)
+
 app.layout = html.Div([
     html.Div([
         dcc.Textarea(
