@@ -8,6 +8,7 @@ import os
 client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 
 app = dash.Dash(__name__)
+server = app.server 
 app.layout = html.Div([
     html.Div([
         dcc.Textarea(
