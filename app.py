@@ -4,10 +4,19 @@ from dash.dependencies import Input, Output
 import openai
 from openai import OpenAI
 import os
+import dash_auth
+
+VALID_USERNAME_PASSWORD_PAIRS = {
+    'Puzya': 'Homyachok1812'
+}
 
 client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 
 app = dash.Dash(__name__)
+auth = dash_auth.BasicAuth(
+    app,
+    VALID_USERNAME_PASSWORD_PAIRS
+)
 server = app.server 
 app.layout = html.Div([
     html.Div([
