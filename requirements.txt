@@ -1,4 +1,4 @@
 ﻿dash==2.10.2
 flask==2.2.5
 openai==1.2.3
-python==3.9.17
+
