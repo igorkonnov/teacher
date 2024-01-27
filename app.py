@@ -84,4 +84,4 @@ def update_output(n_clicks, input_system, input_text, input_user):
 
     return translation
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8083)
+    app.run_server(debug=False)
