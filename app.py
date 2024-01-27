@@ -16,7 +16,7 @@ server = Flask(__name__)
 # Configure BasicAuth
 server.config['BASIC_AUTH_USERNAME'] = os.environ.get('BASIC_AUTH_USERNAME') # Replace with your desired username
 server.config['BASIC_AUTH_PASSWORD'] = os.environ.get('BASIC_AUTH_PASSWORD')  # Replace with your desired password
-server.config['BASIC_AUTH_FORCE'] = True  # This will force BasicAuth on all routes
+#server.config['BASIC_AUTH_FORCE'] = True  # This will force BasicAuth on all routes
 
 basic_auth = BasicAuth(server)
 
