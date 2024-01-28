@@ -46,7 +46,7 @@ app.layout = html.Div([
             style={'width': '100%', 'height': '200px', 'fontSize': 16}
         ),
 
-        html.Button('Translate', id='translate-button', style={'fontSize': '24px', 'padding': '10px 20px', 'margin': '20px 0'}),
+        html.Button('RUN', id='translate-button', style={'fontSize': '24px', 'padding': '10px 20px', 'margin': '20px 0'}),
 
         dcc.Loading(
             id="loading",
@@ -68,7 +68,7 @@ def update_output(n_clicks, input_system, input_text, input_user):
     if n_clicks is None:
         return ''
     response = client.chat.completions.create(
-    model="gpt-4-1106-preview",
+    model="gpt-4-0125-preview",
 
     messages=[
             {"role": "system", "content": input_system},
