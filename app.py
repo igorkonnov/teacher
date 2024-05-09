@@ -51,7 +51,8 @@ app.layout = html.Div([
         dcc.Loading(
             id="loading",
             type="default",
-            children=dcc.Markdown(id='output-translation', style={'width': '100%', 'margin': '20px 0', 'whiteSpace': 'pre-line'})
+            children=dcc.Markdown(id='output-translation', children=latex_formula,
+            dangerously_allow_html=True, style={'width': '100%', 'margin': '20px 0', 'whiteSpace': 'pre-line'})
         )
     ], style={'text-align': 'left', 'margin': 'auto', 'width': '90%'})
 ])
